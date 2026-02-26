@@ -143,6 +143,29 @@ textarea::placeholder {
   margin: 0 auto 64px;
 }
 
+.how {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  padding: 22px 28px 10px;
+  max-width: 1200px;
+  margin: -40px auto 8px;
+}
+
+.how__card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.muted {
+  color: var(--muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
 section {
   background: var(--card);
   border: 1px solid var(--border);
@@ -182,6 +205,10 @@ section {
   display: grid;
   grid-template-rows: 200px auto;
   box-shadow: var(--shadow);
+}
+
+.pet-card__link {
+  display: contents;
 }
 
 .pet-card__image {
@@ -260,6 +287,30 @@ section {
   border-radius: 999px;
   border: 1px solid rgba(255, 159, 28, 0.4);
   font-size: 0.85rem;
+}
+
+.detail-layout {
+  grid-template-columns: 1.2fr 1fr;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) 1.2fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.detail__image {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  box-shadow: var(--shadow);
+}
+
+.detail__body {
+  display: grid;
+  gap: 10px;
 }
 
 .form {

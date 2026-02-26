@@ -7,8 +7,8 @@ const defaultForm = {
   message: ''
 };
 
-const AdoptionForm = ({ pets, onSubmit }) => {
-  const [form, setForm] = useState({ ...defaultForm, petId: pets[0]?.id || '' });
+const AdoptionForm = ({ pets, onSubmit, preselectedId }) => {
+  const [form, setForm] = useState({ ...defaultForm, petId: preselectedId || pets[0]?.id || '' });
 
   const handleChange = (key, value) => {
     setForm((prev) => ({ ...prev, [key]: value }));
@@ -18,7 +18,7 @@ const AdoptionForm = ({ pets, onSubmit }) => {
     event.preventDefault();
     const pet = pets.find((item) => item.id === form.petId);
     onSubmit?.({ ...form, petName: pet?.name || 'your chosen pet' });
-    setForm({ ...defaultForm, petId: pets[0]?.id || '' });
+    setForm({ ...defaultForm, petId: preselectedId || pets[0]?.id || '' });
   };
 
   return (
