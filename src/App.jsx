@@ -5,6 +5,7 @@ import PetList from './components/PetList';
 import AdoptionForm from './components/AdoptionForm';
 import PetDetail from './components/PetDetail';
 import { fetchPets } from './api/pets';
+import { submitAdoptionRequest } from './api/adoption';
 
 const App = () => {
   const [filters, setFilters] = useState({
@@ -36,7 +37,8 @@ const App = () => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
-  const handleSubmit = (payload) => {
+  const handleSubmit = async (payload) => {
+    await submitAdoptionRequest(payload);
     setSubmitted(payload);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -55,6 +57,10 @@ const App = () => {
               <option value="all">All species</option>
               <option value="Dog">Dogs</option>
               <option value="Cat">Cats</option>
+              <option value="Rabbit">Rabbits</option>
+              <option value="Bird">Birds</option>
+              <option value="Fish">Fish</option>
+              <option value="Small Rodent">Small rodents</option>
             </select>
             <select value={filters.size} onChange={(event) => handleFilterChange('size', event.target.value)}>
               <option value="all">Any size</option>

@@ -1,7 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const speciesIcon = {
+  Dog: '🐕',
+  Cat: '🐈',
+  Rabbit: '🐇',
+  Fish: '🐠',
+  Bird: '🐦',
+  'Small Rodent': '🐹'
+};
+
 const PetCard = ({ pet }) => {
+  const icon = speciesIcon[pet.species] || '🐾';
+
   return (
     <article className="pet-card">
       <Link to={`/pets/${pet.id}`} className="pet-card__link">
@@ -16,7 +27,7 @@ const PetCard = ({ pet }) => {
               <h3>{pet.name}</h3>
               <p className="pet-card__meta">{pet.breed} • {pet.age} • {pet.size}</p>
             </div>
-            <span className="pill">{pet.species}</span>
+            <span className="pill">{icon} {pet.species}</span>
           </header>
           <p className="pet-card__description">{pet.description}</p>
           <div className="pet-card__tags">

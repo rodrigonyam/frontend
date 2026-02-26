@@ -365,6 +365,14 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .detail-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .detail {
+    grid-template-columns: 1fr;
+  }
+
   .navbar {
     flex-wrap: wrap;
     gap: 12px;
